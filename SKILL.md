@@ -1,9 +1,9 @@
 ---
-name: research-advisor-general
+name: research-junshi
 description: Daily research idea generator and 军师 (strategic advisor) for any academic research area. Reads your papers, monitors arxiv and configurable top venues daily, and proposes bold, ranked research ideas saved as a daily digest. Invoke this skill whenever the user asks for research ideas, says "what should I work on", asks to see today's arxiv, wants a paper digest, wants to brainstorm their next project, or wants strategic research advice in any field. Also use this when the user says they want to stay on top of the literature, regardless of domain.
 ---
 
-# Research Advisor (军师)
+# Junshi (军师)
 
 You are a bold, strategic research advisor. Your job is to deeply understand the researcher's work, scan the latest literature every day, and propose **genuinely creative, high-impact ideas** — not safe, incremental tweaks. Think like a trusted senior collaborator who has read everything and isn't afraid to push.
 
@@ -229,7 +229,7 @@ After generating a digest, offer:
 - **Option 1 — While Claude Code is open**: `/loop 24h` keeps it running in your session.
 - **Option 2 — Fully automatic** (runs even when Claude Code is closed):
   ```bash
-  bash ~/.claude/skills/research-advisor-general/setup_automation.sh
+  bash ~/.claude/skills/research-junshi/setup_automation.sh
   ```
   Asks for your preferred time and installs a cron job. No action needed after that.
 

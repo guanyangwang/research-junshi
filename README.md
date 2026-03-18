@@ -1,19 +1,25 @@
-# 军师 - Personalized Research Strategist
+# Junshi
 
-**Not just what's new. What's new for *you*.**
+**Your personalized research strategist**
 
-You stay the scientist. It's the **军师**: reads your papers, tracks the literature, and proposes bold ideas — every morning.
+*Not just what's new. What's new for you.*
 
-A Claude Code skill that acts as your daily strategic research advisor for **any academic field**. Tell it your research problem and point it to your papers — it reads your work, monitors arxiv and top venues every day, and gives you 3–5 bold, ranked research directions grounded in what you've already built.
+Junshi is a Claude Code skill for researchers. It reads your papers, builds a profile of your methods and interests, tracks new papers from arXiv and the venues you care about, and proposes 3–5 ranked research directions you can actually test.
 
-Works for ML, NLP, computer vision, robotics, biology, physics, economics, statistics, and more.
+The product is **Junshi**. The Claude Code skill name is **`research-junshi`**.
+
+You stay the researcher. Junshi acts like a daily 军师: it connects your past work to fresh literature, looks for gaps, and turns them into concrete ideas with a first experiment and a main risk.
+
+It works across many fields, including machine learning, statistics, economics, biology, physics, robotics, and more.
 
 ## 30-second example
 
-```
+Tell Claude Code your situation in plain language:
+
+```text
 I work on causal inference and econometrics. My papers are in ~/papers/.
 I'm thinking about better ways to handle high-dimensional confounders.
-Run the research advisor.
+Run research-junshi.
 ```
 
 Claude reads your papers, builds a profile, searches today's arxiv and recent venue papers, and saves a digest like this:
@@ -49,7 +55,7 @@ whose effect on inference is unclear.
 ## Installation
 
 ```bash
-git clone https://github.com/guanyangwang/personalized-research-strategist-junshi.git ~/.claude/skills/research-advisor-general
+git clone https://github.com/guanyangwang/personalized-research-strategist-junshi.git ~/.claude/skills/research-junshi
 ```
 
 Then reload plugins in Claude Code:
@@ -74,7 +80,7 @@ Just describe your situation naturally:
 ```
 I'm researching causal inference in economics. My papers are in ~/papers/.
 I'm thinking about better ways to handle high-dimensional confounders.
-Run the research advisor.
+Run research-junshi.
 ```
 
 Claude will ask a few follow-up questions (which venues to watch, etc.) and make smart guesses if you skip anything. It reads your papers, builds a profile, and generates today's digest.
@@ -88,17 +94,17 @@ Give me today's research digest.
 ### Set up automatic daily runs (fully automatic, no Claude Code session needed)
 
 ```bash
-bash ~/.claude/skills/research-advisor-general/setup_automation.sh
+bash ~/.claude/skills/research-junshi/setup_automation.sh
 ```
 
 The script asks for your preferred time (e.g. `08:00`) and sets up a cron job. Digests appear in `~/.claude/research-advisor/digests/` each morning with no action required.
 
-> **Note**: Automated runs use `--dangerously-skip-permissions` so Claude can run headlessly. Permissions are scoped to Read, Write, WebFetch, and WebSearch only — no destructive operations.
+> **Note**: Automated runs use `--dangerously-skip-permissions` for headless execution. Review the script before enabling automation, and use only in a trusted local environment.
 
 ### Update your profile
 
 ```
-Update my research advisor profile. I've shifted focus to [new direction].
+Update my Junshi profile. I've shifted focus to [new direction].
 ```
 
 ## Output

@@ -1,11 +1,11 @@
 #!/bin/bash
-# Research Advisor (General) — Automation Setup
+# Junshi — Automation Setup
 # Run this once to schedule daily digests automatically.
 
 set -e
 
 echo ""
-echo "=== Research Advisor (General): Daily Automation Setup ==="
+echo "=== Junshi: Daily Automation Setup ==="
 echo ""
 
 # --- Find claude CLI ---
@@ -61,13 +61,13 @@ else
 fi
 
 # --- Write cron job ---
-CRON_CMD="$MINUTE $HOUR * * * $CLAUDE_BIN --dangerously-skip-permissions -p \"$PROMPT\" >> $DIGEST_DIR/cron-general.log 2>&1"
+CRON_CMD="$MINUTE $HOUR * * * $CLAUDE_BIN --dangerously-skip-permissions -p \"$PROMPT\" >> $DIGEST_DIR/cron-junshi.log 2>&1"
 
 # Check if cron job already exists
-EXISTING=$(crontab -l 2>/dev/null | grep "research-advisor-general" || true)
+EXISTING=$(crontab -l 2>/dev/null | grep "research-junshi" || true)
 if [ -n "$EXISTING" ]; then
   echo ""
-  echo "Existing research-advisor-general cron job found:"
+  echo "Existing research-junshi cron job found:"
   echo "  $EXISTING"
   read -p "Replace it? (y/n, default y): " REPLACE
   REPLACE=${REPLACE:-y}
@@ -76,24 +76,24 @@ if [ -n "$EXISTING" ]; then
     exit 0
   fi
   # Remove old job
-  crontab -l 2>/dev/null | grep -v "research-advisor-general" | crontab -
+  crontab -l 2>/dev/null | grep -v "research-junshi" | crontab -
 fi
 
 # Add new cron job
-(crontab -l 2>/dev/null; echo "# research-advisor-general daily digest"; echo "$CRON_CMD") | crontab -
+(crontab -l 2>/dev/null; echo "# research-junshi daily digest"; echo "$CRON_CMD") | crontab -
 
 echo ""
 echo "=== Setup complete! ==="
 echo ""
 echo "Your daily digest will run every day at $RUN_TIME."
 echo "Digests saved to:  $DIGEST_DIR/"
-echo "Cron log at:       $DIGEST_DIR/cron-general.log"
+echo "Cron log at:       $DIGEST_DIR/cron-junshi.log"
 echo ""
 echo "To check the cron job:"
 echo "  crontab -l"
 echo ""
 echo "To remove it:"
-echo "  crontab -l | grep -v research-advisor-general | crontab -"
+echo "  crontab -l | grep -v research-junshi | crontab -"
 echo ""
 echo "To run a digest right now:"
-echo "  $CLAUDE_BIN --dangerously-skip-permissions -p \"Run my research advisor general daily digest.\""
+echo "  $CLAUDE_BIN --dangerously-skip-permissions -p \"Run my Junshi daily digest.\""
