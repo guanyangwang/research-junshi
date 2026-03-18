@@ -1,4 +1,4 @@
-# Research Advisor — General (Claude Code Skill)
+# 军师 - Personalized Research Strategist
 
 **Not just what's new. What's new for *you*.**
 
