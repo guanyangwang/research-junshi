@@ -55,9 +55,9 @@ echo "Permissions config written to: $SETTINGS_FILE"
 
 # --- Build the prompt ---
 if [ -n "$PAPERS_FOLDER" ]; then
-  PROMPT="Run my research advisor general daily digest. My papers are in $PAPERS_FOLDER. Load my profile from ~/.claude/research-advisor/profile-general.md if it exists, otherwise do setup first. Save today's digest to ~/.claude/research-advisor/digests/\$(date +%Y-%m-%d)-general.md"
+  PROMPT="Run my research advisor daily digest. My papers are in $PAPERS_FOLDER. Load my profile from ~/.claude/research-advisor/profile.md if it exists, otherwise do setup first. Save today's digest to ~/.claude/research-advisor/digests/\$(date +%Y-%m-%d).md"
 else
-  PROMPT="Run my research advisor general daily digest. Load my profile from ~/.claude/research-advisor/profile-general.md and save today's digest to ~/.claude/research-advisor/digests/\$(date +%Y-%m-%d)-general.md"
+  PROMPT="Run my research advisor daily digest. Load my profile from ~/.claude/research-advisor/profile.md and save today's digest to ~/.claude/research-advisor/digests/\$(date +%Y-%m-%d).md"
 fi
 
 # --- Write cron job ---

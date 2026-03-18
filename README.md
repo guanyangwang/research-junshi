@@ -1,24 +1,55 @@
-# 军师 - Research Advisor  (Claude Code Skill)
+# Research Advisor — General (Claude Code Skill)
 
-A Claude Code skill that acts as your daily **军师** (strategic research advisor) for **any academic field**. Tell it your research problem and point it to your papers — it monitors arxiv and top venues every day, reads your work, and proposes bold, ranked research ideas saved as a daily digest.
+**Not just what's new. What's new for *you*.**
+
+You stay the scientist. It's the **军师**: reads your papers, tracks the literature, and proposes bold ideas — every morning.
+
+A Claude Code skill that acts as your daily strategic research advisor for **any academic field**. Tell it your research problem and point it to your papers — it reads your work, monitors arxiv and top venues every day, and gives you 3–5 bold, ranked research directions grounded in what you've already built.
 
 Works for ML, NLP, computer vision, robotics, biology, physics, economics, statistics, and more.
 
-## What it does
+## 30-second example
 
-- **Learns your research** by reading your papers — your methods, contributions, open problems, and taste
-- **Asks you about your field and venues** on first run; picks smart defaults if you skip
-- **Searches arxiv daily** across the categories relevant to your field
-- **Monitors your target venues** (NeurIPS, ACL, Nature, ICRA, or whatever you care about)
-- **Summarizes** the most relevant papers — key insight, what they leave open, why it matters to you
-- **Generates bold ideas** in 军师 mode: cross-pollinated, gap-exploiting, not incremental
-- **Ranks ideas** by Novelty × 0.4 + Feasibility × 0.3 + Impact × 0.3
-- **Saves a daily digest** to `~/.claude/research-advisor/digests/YYYY-MM-DD.md`
+```
+I work on causal inference and econometrics. My papers are in ~/papers/.
+I'm thinking about better ways to handle high-dimensional confounders.
+Run the research advisor.
+```
+
+Claude reads your papers, builds a profile, searches today's arxiv and recent venue papers, and saves a digest like this:
+
+```
+### [Rank 1] Debiased Lasso Meets Synthetic Control
+Score: Novelty 4/5 · Feasibility 5/5 · Impact 4/5 → 4.3/5
+
+The pitch: Synthetic control methods break down when the donor pool is large
+relative to the pre-treatment window. Your debiased Lasso work already handles
+high-dimensional nuisance estimation — applying it to reweight the donor pool
+gives a synthetic control estimator that is valid even when p >> T.
+
+Why now: Arkhangelsky et al. (2021) opened the synthetic DiD direction but left
+the high-dimensional donor case open. Two AER papers this month circle the same
+gap from different angles.
+
+First experiment: Simulate a panel with n=500 donors, T=50 periods, and sparse
+true weights. Compare your debiased estimator against standard synthetic control
+and SDID on coverage and RMSE. One afternoon of code.
+
+Main risk: The weights may not sum to 1 after debiasing — need a projection step
+whose effect on inference is unclear.
+```
+
+## What you get
+
+- **Ideas grounded in your own work** — Claude reads your papers first, so ideas connect to your methods, open problems, and research taste
+- **Daily literature coverage** — arxiv + venue papers (NeurIPS, ACL, Nature, ICRA, or whatever you care about), filtered to what actually matters for your problem
+- **Bold ideas, not safe summaries** — 军师 mode pushes for cross-pollinated, gap-exploiting directions; each idea comes with a first experiment and main risk
+- **A ranked digest you can act on** — saved to `~/.claude/research-advisor/digests/` every morning
 
 ## Installation
 
 ```bash
-git clone https://github.com/guanyangwang/research-advisor-general.git ~/.claude/skills/research-advisor-general
+git clone https://github.com/guanyangwang/personalized-research-strategist-junshi.git ~/.claude/skills/research-advisor-general
 ```
 
 Then reload plugins in Claude Code:
@@ -72,14 +103,12 @@ Update my research advisor profile. I've shifted focus to [new direction].
 
 ## Output
 
-Each digest is saved to `~/.claude/research-advisor/digests/YYYY-MM-DD.md`:
+Each digest is saved to `~/.claude/research-advisor/digests/`:
 
 - **Today's landscape** — what the field is doing right now
 - **Top papers** — summaries of the most relevant arxiv + venue papers
-- **Ranked ideas** — top 3-5 bold directions with scores, pitch, first experiment, and main risk
+- **Ranked ideas** — top 3–5 bold directions with scores, pitch, first experiment, and main risk
 - **Raw ideas** — unfiltered brainstorm
-
-
 
 ## Supported Fields
 
@@ -102,8 +131,8 @@ If your field or venue isn't listed, just tell Claude — it will adapt.
 
 ```
 ~/.claude/research-advisor/
-├── profile.md          ← your research profile (rebuilt on "update my profile")
-├── config.md           ← field, venues, arxiv categories, papers folder
+├── profile.md     ← your research profile (rebuilt on "update my profile")
+├── config.md      ← field, venues, arxiv categories, papers folder
 └── digests/
     ├── 2026-03-15.md
     ├── 2026-03-16.md
