@@ -27,12 +27,12 @@ read -p "Path to your papers folder (e.g. ~/papers, press Enter to skip): " PAPE
 PAPERS_FOLDER=${PAPERS_FOLDER:-""}
 
 # --- Output folder ---
-DIGEST_DIR="$HOME/.claude/research-advisor/digests"
+DIGEST_DIR="$HOME/.claude/junshi/digests"
 mkdir -p "$DIGEST_DIR"
 echo "Digests will be saved to: $DIGEST_DIR"
 
 # --- Write permissions settings file ---
-SETTINGS_DIR="$HOME/.claude/research-advisor"
+SETTINGS_DIR="$HOME/.claude/junshi"
 SETTINGS_FILE="$SETTINGS_DIR/automation_settings.json"
 mkdir -p "$SETTINGS_DIR"
 
@@ -55,9 +55,9 @@ echo "Permissions config written to: $SETTINGS_FILE"
 
 # --- Build the prompt ---
 if [ -n "$PAPERS_FOLDER" ]; then
-  PROMPT="Run my research advisor daily digest. My papers are in $PAPERS_FOLDER. Load my profile from ~/.claude/research-advisor/profile.md if it exists, otherwise do setup first. Save today's digest to ~/.claude/research-advisor/digests/\$(date +%Y-%m-%d).md"
+  PROMPT="Run my research advisor daily digest. My papers are in $PAPERS_FOLDER. Load my profile from ~/.claude/junshi/profile.md if it exists, otherwise do setup first. Save today's digest to ~/.claude/junshi/digests/\$(date +%Y-%m-%d).md"
 else
-  PROMPT="Run my research advisor daily digest. Load my profile from ~/.claude/research-advisor/profile.md and save today's digest to ~/.claude/research-advisor/digests/\$(date +%Y-%m-%d).md"
+  PROMPT="Run my research advisor daily digest. Load my profile from ~/.claude/junshi/profile.md and save today's digest to ~/.claude/junshi/digests/\$(date +%Y-%m-%d).md"
 fi
 
 # --- Write cron job ---

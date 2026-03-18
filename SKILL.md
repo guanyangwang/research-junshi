@@ -44,7 +44,7 @@ Use the Read tool (with page ranges for large files) or Bash with `pdftotext` on
 
 ### 3. Build the research profile
 
-Save to `~/.claude/research-advisor/profile.md`:
+Save to `~/.claude/junshi/profile.md`:
 
 ```markdown
 # Research Profile
@@ -90,7 +90,7 @@ Format:
 
 ### 4. Save config
 
-Save to `~/.claude/research-advisor/config.md`:
+Save to `~/.claude/junshi/config.md`:
 ```markdown
 # Config
 - Papers folder: [path]
@@ -104,7 +104,7 @@ Save to `~/.claude/research-advisor/config.md`:
 
 ## Daily Digest Workflow
 
-On each daily run, load `~/.claude/research-advisor/profile.md` and `config.md` first. Then:
+On each daily run, load `~/.claude/junshi/profile.md` and `config.md` first. Then:
 
 ### Step 1: Search arxiv (last 24 hours)
 
@@ -176,7 +176,7 @@ Select the top 3-5.
 
 ### Step 6: Save the daily digest
 
-Save to `~/.claude/research-advisor/digests/YYYY-MM-DD.md`:
+Save to `~/.claude/junshi/digests/YYYY-MM-DD.md`:
 
 ```markdown
 # Research Digest — [DATE]
@@ -238,7 +238,7 @@ After generating a digest, offer:
 If the user asks to set up automation:
 1. Tell them to run `setup_automation.sh`
 2. Warn that it uses `--dangerously-skip-permissions` — scoped to read/write/web only, no destructive ops
-3. Digests will appear in `~/.claude/research-advisor/digests/` each morning
+3. Digests will appear in `~/.claude/junshi/digests/` each morning
 
 ---
 

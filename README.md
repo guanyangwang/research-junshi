@@ -1,4 +1,4 @@
-# Junshi (军师) 🪭
+# 🪭 Junshi
 
 **Your personalized research strategist**
 
@@ -6,7 +6,7 @@
 
 Junshi is a Claude Code skill for researchers. It reads your papers, builds a profile of your methods and interests, tracks new papers from arXiv and the venues you care about, and proposes 3–5 ranked research directions you can actually test.
 
-The product is **Junshi (军师)**. The Claude Code skill name is **`research-junshi`**.
+The product is **Junshi**. The Claude Code skill name is **`research-junshi`**.
 
 You stay the researcher. Junshi acts like a daily 军师: it connects your past work to fresh literature, looks for gaps, and turns them into concrete ideas with a first experiment and a main risk.
 
@@ -50,7 +50,7 @@ whose effect on inference is unclear.
 - **Ideas grounded in your own work** — Claude reads your papers first, so ideas connect to your methods, open problems, and research taste
 - **Daily literature coverage** — arxiv + venue papers (NeurIPS, ACL, Nature, ICRA, or whatever you care about), filtered to what actually matters for your problem
 - **Bold ideas, not safe summaries** — 军师 mode pushes for cross-pollinated, gap-exploiting directions; each idea comes with a first experiment and main risk
-- **A ranked digest you can act on** — saved to `~/.claude/research-advisor/digests/` every morning
+- **A ranked digest you can act on** — saved to `~/.claude/junshi/digests/` every morning
 
 ## Installation
 
@@ -97,7 +97,7 @@ Give me today's research digest.
 bash ~/.claude/skills/research-junshi/setup_automation.sh
 ```
 
-The script asks for your preferred time (e.g. `08:00`) and sets up a cron job. Digests appear in `~/.claude/research-advisor/digests/` each morning with no action required.
+The script asks for your preferred time (e.g. `08:00`) and sets up a cron job. Digests appear in `~/.claude/junshi/digests/` each morning with no action required.
 
 > **Note**: Automated runs use `--dangerously-skip-permissions` for headless execution. Review the script before enabling automation, and use only in a trusted local environment.
 
@@ -109,7 +109,7 @@ Update my Junshi profile. I've shifted focus to [new direction].
 
 ## Output
 
-Each digest is saved to `~/.claude/research-advisor/digests/`:
+Each digest is saved to `~/.claude/junshi/digests/`:
 
 - **Today's landscape** — what the field is doing right now
 - **Top papers** — summaries of the most relevant arxiv + venue papers
@@ -136,7 +136,7 @@ If your field or venue isn't listed, just tell Claude — it will adapt.
 ## Files created by the skill
 
 ```
-~/.claude/research-advisor/
+~/.claude/junshi/
 ├── profile.md     ← your research profile (rebuilt on "update my profile")
 ├── config.md      ← field, venues, arxiv categories, papers folder
 └── digests/
