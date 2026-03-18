@@ -1,4 +1,4 @@
-# 🪭 Junshi
+# 🪭 Junshi (军师）
 
 **Your personalized research strategist**
 
@@ -6,7 +6,7 @@
 
 Junshi is a Claude Code skill for researchers. It reads your papers, builds a profile of your methods and interests, tracks new papers from arXiv and the venues you care about, and proposes 3–5 ranked research directions you can actually test.
 
-The product is **Junshi**. The Claude Code skill name is **`research-junshi`**.
+The product is **Junshi （军师）**. The Claude Code skill name is **`research-junshi`**.
 
 You stay the researcher. Junshi acts like a daily 军师: it connects your past work to fresh literature, looks for gaps, and turns them into concrete ideas with a first experiment and a main risk.
 
